@@ -1,0 +1,16 @@
+*.iml
+.gradle
+.idea
+.DS_Store
+/build
+*/build
+captures
+.externalNativeBuild
+.cxx
+local.properties
+xcuserdata
+app-iOS/*.lock
+app-iOS/Pods
+app-iOS/app-iOS.xcodeproj/*
+app-iOS/app-iOS.xcworkspace/*
+*.plist

@@ -1,0 +1,33 @@
+name: Maintenance
+
+on:
+  schedule:
+    - cron: 00 00 30 * * # At 00:00 on 30th every month
+
+jobs:
+
+  dependency-update:
+    name: 🔭 Check for dependencies update
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
+      - name: Make gradle executable
+        run: chmod +x ./gradlew
+
+      - name: Check for release dependencies
+        run: ./gradlew :daraja:dependencyUpdates -Drevision=release -DoutputFormatter=html -DreportfileName=dependecies_report -DoutputDir=build/reports --stacktrace
+
+      - name: Upload dependecies report artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Dependecy Report
+          path: build/reports/dependecies_report.html
