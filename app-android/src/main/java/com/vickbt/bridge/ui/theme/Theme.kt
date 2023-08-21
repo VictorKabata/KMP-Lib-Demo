@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vickbt.app_android.ui.theme
+package com.vickbt.bridge.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -54,7 +54,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun DarajaKmpTheme(
+fun BridgeAndroidTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit

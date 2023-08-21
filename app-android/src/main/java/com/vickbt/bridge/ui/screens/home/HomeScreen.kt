@@ -14,23 +14,21 @@
  * limitations under the License.
  */
 
-package com.vickbt.app_android.di
+package com.vickbt.bridge.ui.screens.home
 
-import com.vickbt.app_android.ui.screens.home.HomeViewModel
-import com.vickbt.darajakmp.Daraja
-import org.koin.androidx.viewmodel.dsl.viewModelOf
-import org.koin.dsl.module
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import com.vickbt.bridge.ui.theme.BridgeAndroidTheme
 
-val presentationModule = module {
+@Composable
+fun HomeScreen() {
 
-    single {
-        Daraja.Builder()
-            .setConsumerKey("zg1m1CbMGx8E2BqVThHIJHFMWSnVJ4XA")
-            .setConsumerSecret("z4CAY2TUw6rprEvy")
-            .setPassKey("bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919")
-            .isSandbox()
-            .build()
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    BridgeAndroidTheme {
+        HomeScreen()
     }
-
-    viewModelOf(::HomeViewModel)
 }

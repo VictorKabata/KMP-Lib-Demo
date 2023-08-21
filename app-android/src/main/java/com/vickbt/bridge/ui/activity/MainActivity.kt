@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vickbt.app_android.ui.activity
+package com.vickbt.bridge.ui.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -25,15 +25,15 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.vickbt.app_android.ui.screens.home.HomeScreen
-import com.vickbt.app_android.ui.theme.DarajaKmpTheme
+import com.vickbt.bridge.ui.screens.home.HomeScreen
+import com.vickbt.bridge.ui.theme.BridgeAndroidTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            DarajaKmpTheme {
+            BridgeAndroidTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -48,6 +48,6 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    DarajaKmpTheme {
+    BridgeAndroidTheme {
     }
 }

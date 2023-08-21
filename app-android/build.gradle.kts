@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.vickikbt.app_android"
 
-        minSdk = 21
+        minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -56,7 +56,7 @@ dependencies {
 
     // implementation("io.github.victorkabata:daraja-multiplatform:0.9.1")
 
-    implementation(project(":daraja"))
+    implementation(project(":bridge"))
 
     implementation("androidx.core:core-ktx:1.9.0")
 
