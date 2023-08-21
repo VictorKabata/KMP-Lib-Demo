@@ -1,7 +1,11 @@
 plugins {
-    kotlin("multiplatform")
-    kotlin("native.cocoapods")
-    id("com.android.library")
+    alias(libs.plugins.nativeCocoapod)
+    alias(libs.plugins.multiplatform)
+    alias(libs.plugins.android.library)
+
+    /*id("maven-publish")
+    id("signing")
+    id("co.touchlab.faktory.kmmbridge") version "0.3.7"*/
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -11,13 +15,19 @@ kotlin {
     android {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = JavaVersion.VERSION_1_8.toString()
             }
+            publishLibraryVariants("release", "debug")
         }
     }
+
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+
+    jvm()
+
+    // js()
 
     cocoapods {
         summary = "Some description for the Shared Module"
@@ -26,20 +36,31 @@ kotlin {
         ios.deploymentTarget = "14.1"
         framework {
             baseName = "bridge"
+            isStatic = true
         }
     }
-    
+
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                //put your multiplatform dependencies here
-            }
+        sourceSets["commonMain"].dependencies {
+            //put your multiplatform dependencies here
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
+
+        sourceSets["commonTest"].dependencies {
+            implementation(kotlin("test"))
+
         }
+
+        sourceSets["androidMain"].dependencies {}
+
+        sourceSets["androidTest"].dependencies {}
+
+        sourceSets["iosMain"].dependencies {}
+
+        sourceSets["iosTest"].dependencies {}
+
+        sourceSets["jvmMain"].dependencies {}
+
+        sourceSets["jvmTest"].dependencies {}
     }
 }
 
