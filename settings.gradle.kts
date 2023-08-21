@@ -22,3 +22,4 @@ rootProject.name = "DarajaMultiplatform"
 include(":daraja")
 include(":app-android")
 include(":app-desktop")
+include(":bridge")
