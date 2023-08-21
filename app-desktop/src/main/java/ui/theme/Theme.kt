@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vickikbt.app_android.ui.theme
+package ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -43,7 +43,7 @@ private val LightColorScheme = lightColors(
 )
 
 @Composable
-fun DarajaKmpTheme(
+fun BridgeDesktopTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

@@ -20,26 +20,26 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.ApplicationScope
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.rememberWindowState
-import com.vickikbt.app_desktop.ui.screens.home.HomeScreen
-import com.vickikbt.app_android.ui.theme.DarajaKmpTheme
+import ui.screens.home.HomeScreen
+import ui.theme.BridgeDesktopTheme
 
 @Composable
 fun MainScreen(applicationScope: ApplicationScope) {
     Window(
         onCloseRequest = { applicationScope.exitApplication() },
-        title = "Daraja Multiplatform Desktop",
+        title = "Bridge Desktop Sample",
         state = rememberWindowState(
             position = WindowPosition.Aligned(Alignment.Center),
-            width = Dp.Unspecified,
-            height = Dp.Unspecified
+            width = 800.dp,
+            height = 640.dp
         )
     ) {
-        DarajaKmpTheme(darkTheme = true) {
+        BridgeDesktopTheme(darkTheme = true) {
             Surface(color = MaterialTheme.colors.surface) {
                 HomeScreen()
             }

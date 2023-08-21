@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vickikbt.app_android.ui.theme
+package ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

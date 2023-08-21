@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":daraja"))
+    // implementation(project(":bridge"))
     implementation(compose.desktop.currentOs)
 }
 
