@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.vickikbt.app_android"
+    namespace = "com.vickikbt.bridge"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.vickikbt.app_android"
+        applicationId = "com.vickikbt.bridge"
 
         minSdk = 24
         targetSdk = 33
