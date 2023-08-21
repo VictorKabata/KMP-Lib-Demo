@@ -17,9 +17,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "DarajaMultiplatform"
+rootProject.name = "KMP-Lib-Demo"
 
-include(":daraja")
 include(":app-android")
 include(":app-desktop")
 include(":bridge")
