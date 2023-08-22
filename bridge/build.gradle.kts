@@ -6,8 +6,8 @@ plugins {
     alias(libs.plugins.dokka)
     alias(libs.plugins.kover)
 
-    /*id("maven-publish")
-    id("signing")
+    id("maven-publish")
+    /*id("signing")
     id("co.touchlab.faktory.kmmbridge") version "0.3.7"*/
 }
 
@@ -77,6 +77,7 @@ android {
     }
 }
 
+//region Documentation with dokka
 tasks.dokkaHtml.configure {
     outputDirectory.set(dokkaOutputDir)
 }
@@ -90,12 +91,20 @@ val javadocJar = tasks.register<Jar>("javadocJar") {
     archiveClassifier.set("javadoc")
     from(dokkaOutputDir)
 }
+//endregion
 
-/*addGithubPackagesRepository()
-kmmbridge {
-    frameworkName.set("DarajaMultiplatform")
-    mavenPublishArtifacts()
-    githubReleaseVersions()
-    versionPrefix.set("0.2")
-    spm()
-}*/
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.VictorKabata"
+            artifactId = "kmp-lib-demo"
+            version = "0.0.1"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
+
+
