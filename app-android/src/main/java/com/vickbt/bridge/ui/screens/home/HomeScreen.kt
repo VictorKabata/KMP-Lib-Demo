@@ -33,14 +33,14 @@ import com.vickbt.bridge.ui.theme.BridgeAndroidTheme
 fun HomeScreen() {
     val greeting = Greeting()
 
-    val helloPerson = greeting.greet("Victor")
-    // val helloPlatform=greeting.greet()
-    val platformName = greeting.platform.name
+    // val helloPerson = greeting.greet("Victor")
+    val helloPlatform = greeting.greet()
+    // val platformName = greeting.platform.name
 
     Box(modifier = Modifier.fillMaxSize()) {
         Text(
             modifier = Modifier.align(Alignment.Center),
-            text = helloPerson,
+            text = helloPlatform,
             color = MaterialTheme.colorScheme.onSurface,
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold

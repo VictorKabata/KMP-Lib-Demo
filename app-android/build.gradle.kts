@@ -56,6 +56,9 @@ dependencies {
 
     implementation(project(":bridge"))
 
+    // Added from local machine via Maven Local -> ./gradlew publishToMavenLocal
+    // implementation("com.github.VictorKabata:kmp-lib-demo:0.0.1")
+
     implementation("androidx.core:core-ktx:1.9.0")
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
@@ -67,7 +70,6 @@ dependencies {
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
 
-    implementation("io.insert-koin:koin-android:3.2.3")
     implementation("io.insert-koin:koin-androidx-compose:3.2.2")
 
     testImplementation("junit:junit:4.13.2")
