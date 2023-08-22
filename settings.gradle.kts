@@ -14,6 +14,7 @@ dependencyResolutionManagement {
         mavenLocal()
         google()
         mavenCentral()
+        mavenLocal()
     }
 }
 
