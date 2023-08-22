@@ -7,8 +7,8 @@ plugins {
     alias(libs.plugins.kover)
 
     id("maven-publish")
-    /*id("signing")
-    id("co.touchlab.faktory.kmmbridge") version "0.3.7"*/
+    id("signing")
+    // id("co.touchlab.faktory.kmmbridge") version "0.3.7"
 }
 
 val dokkaOutputDir = buildDir.resolve("reports/dokka")
@@ -74,6 +74,14 @@ android {
     compileSdk = 33
     defaultConfig {
         minSdk = 24
+    }
+
+    /** Solves warning: https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/PublishingOptions*/
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
 
