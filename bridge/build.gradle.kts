@@ -11,19 +11,30 @@ plugins {
     // id("co.touchlab.faktory.kmmbridge") version "0.3.7"
 }
 
+//region Documentation with dokka
 val dokkaOutputDir = buildDir.resolve("reports/dokka")
+
+tasks.dokkaHtml.configure {
+    outputDirectory.set(dokkaOutputDir)
+}
+
+val deleteDokkaOutputDir by tasks.register<Delete>("deleteDokkaOutputDirectory") {
+    delete(dokkaOutputDir)
+}
+
+val javadocJar = tasks.register<Jar>("javadocJar") {
+    dependsOn(deleteDokkaOutputDir, tasks.dokkaHtml)
+    archiveClassifier.set("javadoc")
+    from(dokkaOutputDir)
+}
+//endregion
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     targetHierarchy.default()
 
     android {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = JavaVersion.VERSION_1_8.toString()
-            }
-            publishLibraryVariants("release")
-        }
+        publishLibraryVariants("release", "debug")
     }
 
     iosX64()
@@ -52,7 +63,6 @@ kotlin {
 
         sourceSets["commonTest"].dependencies {
             implementation(kotlin("test"))
-
         }
 
         sourceSets["androidMain"].dependencies {}
@@ -84,22 +94,6 @@ android {
         }
     }
 }
-
-//region Documentation with dokka
-tasks.dokkaHtml.configure {
-    outputDirectory.set(dokkaOutputDir)
-}
-
-val deleteDokkaOutputDir by tasks.register<Delete>("deleteDokkaOutputDirectory") {
-    delete(dokkaOutputDir)
-}
-
-val javadocJar = tasks.register<Jar>("javadocJar") {
-    dependsOn(deleteDokkaOutputDir, tasks.dokkaHtml)
-    archiveClassifier.set("javadoc")
-    from(dokkaOutputDir)
-}
-//endregion
 
 publishing {
     publications {

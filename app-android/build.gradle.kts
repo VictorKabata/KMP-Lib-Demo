@@ -31,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     buildFeatures {
@@ -52,7 +52,7 @@ dependencies {
     // implementation(project(":bridge"))
 
     // Added from local machine via Maven Local -> ./gradlew publishToMavenLocal
-    // implementation("com.github.VictorKabata:kmp-lib-demo:0.0.1")
+    implementation("com.github.VictorKabata:kmp-lib-demo:0.0.1")
 
     implementation("androidx.core:core-ktx:1.9.0")
 
