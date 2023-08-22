@@ -22,7 +22,7 @@ kotlin {
             kotlinOptions {
                 jvmTarget = JavaVersion.VERSION_1_8.toString()
             }
-            publishLibraryVariants("release", "debug")
+            publishLibraryVariants("release")
         }
     }
 
