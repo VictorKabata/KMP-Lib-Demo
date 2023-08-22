@@ -17,9 +17,9 @@
 package com.vickbt.bridge
 
 class Greeting {
-    private val platform: Platform = getPlatform()
+    val platform: Platform = getPlatform()
 
-    fun greet(): String {
-        return "Hello, ${platform.name}!"
+    fun greet(name: String? = null): String {
+        return "Hello, ${name ?: platform.name}!"
     }
 }

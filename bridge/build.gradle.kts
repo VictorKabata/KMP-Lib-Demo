@@ -18,7 +18,12 @@ kotlin {
     targetHierarchy.default()
 
     android {
-        publishLibraryVariants("release", "debug")
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = JavaVersion.VERSION_1_8.toString()
+            }
+            publishLibraryVariants("release", "debug")
+        }
     }
 
     iosX64()
