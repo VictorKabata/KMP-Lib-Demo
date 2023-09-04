@@ -7,28 +7,19 @@ plugins {
     alias(libs.plugins.kover)
 
     id("maven-publish")
-    id("signing")
+    // id("signing")
     // id("co.touchlab.faktory.kmmbridge") version "0.3.7"
 }
-
-val dokkaOutputDir = buildDir.resolve("reports/dokka")
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     targetHierarchy.default()
 
     android {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = JavaVersion.VERSION_1_8.toString()
-            }
-            publishLibraryVariants("release")
-        }
+        publishLibraryVariants("release", "debug")
     }
 
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
+    ios()
 
     jvm()
 
@@ -52,7 +43,6 @@ kotlin {
 
         sourceSets["commonTest"].dependencies {
             implementation(kotlin("test"))
-
         }
 
         sourceSets["androidMain"].dependencies {}
@@ -76,39 +66,22 @@ android {
         minSdk = 24
     }
 
-    /** Solves warning: https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/PublishingOptions*/
-    publishing {
+    /*publishing {
         singleVariant("release") {
-            withSourcesJar()
+            // withSourcesJar()
             withJavadocJar()
         }
-    }
+    }*/
 }
 
-//region Documentation with dokka
-tasks.dokkaHtml.configure {
-    outputDirectory.set(dokkaOutputDir)
-}
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "com.github.VictorKabata"
+                artifactId = "kmp-lib-demo"
+                version = "0.0.1"
 
-val deleteDokkaOutputDir by tasks.register<Delete>("deleteDokkaOutputDirectory") {
-    delete(dokkaOutputDir)
-}
-
-val javadocJar = tasks.register<Jar>("javadocJar") {
-    dependsOn(deleteDokkaOutputDir, tasks.dokkaHtml)
-    archiveClassifier.set("javadoc")
-    from(dokkaOutputDir)
-}
-//endregion
-
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            groupId = "com.github.VictorKabata"
-            artifactId = "kmp-lib-demo"
-            version = "0.0.1"
-
-            afterEvaluate {
                 from(components["release"])
             }
         }

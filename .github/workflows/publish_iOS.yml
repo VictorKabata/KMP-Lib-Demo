@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      [ main ]
+      [ develop ]
 
 env:
   MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
