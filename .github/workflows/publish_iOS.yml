@@ -3,8 +3,9 @@ name: Publish Swift Package
 on:
   workflow_dispatch:
   push:
-    [main]
-  
+    branches:
+      [main]
+
 permissions:
   contents: write
   packages: write
