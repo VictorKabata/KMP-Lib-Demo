@@ -26,7 +26,7 @@ kotlin {
 
     cocoapods {
         summary = "Some description for the Shared Module"
-        homepage = "Link to the Shared Module homepage"
+        homepage = "https://github.com/VictorKabata/KMP-Lib-Demo"
         version = "1.0"
         ios.deploymentTarget = "14.1"
         framework {
@@ -90,7 +90,12 @@ afterEvaluate {
 
 /**Publish iOS SPM lib*/
 kmmbridge{
-    frameworkName.set("KmpLibDemo")
+    frameworkName.set("KmpLibDemo") // Optional
+    mavenPublishArtifacts()
+    gitTagVersions()
+    versionPrefix.set("0.1")
+    spm()
 }
+addGithubPackagesRepository()
 
 
