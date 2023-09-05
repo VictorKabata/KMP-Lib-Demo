@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'bridge'
     spec.version                  = '1.0'
-    spec.homepage                 = 'Link to the Shared Module homepage'
+    spec.homepage                 = 'https://github.com/VictorKabata/KMP-Lib-Demo'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''
