@@ -9,7 +9,7 @@ plugins {
     id("maven-publish")
     // id("signing")
 
-    id("co.touchlab.faktory.kmmbridge") version "0.3.7"
+    id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
 }
 
 kotlin {
@@ -25,7 +25,7 @@ kotlin {
     // js()
 
     cocoapods {
-        summary = "Some description for the Shared Module"
+        summary = "Kotlin multiplatform lib as a Swift package demo"
         homepage = "https://github.com/VictorKabata/KMP-Lib-Demo"
         version = "1.0"
         ios.deploymentTarget = "14.1"
@@ -89,13 +89,12 @@ afterEvaluate {
 }
 
 /**Publish iOS SPM lib*/
-kmmbridge{
-    frameworkName.set("KmpLibDemo") // Optional
-    mavenPublishArtifacts()
-    gitTagVersions()
-    versionPrefix.set("0.0")
-    spm()
+multiplatformSwiftPackage {
+    packageName("KmpLibDemo")
+    swiftToolsVersion("5.3")
+    targetPlatforms {
+        iOS { v("14.1") }
+    }
 }
-addGithubPackagesRepository()
 
 
