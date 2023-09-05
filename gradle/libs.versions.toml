@@ -8,6 +8,7 @@ nativeCocoapod = "1.9.0"
 dokka = "1.8.20"
 kover = "0.6.1"
 mulitplatformSwiftPackage = "2.1.1"
+kmpBridge = "0.3.7"
 gradleVersionUpdate = "0.45.0"
 
 # Kotlin Multiplatform Version
@@ -35,6 +36,7 @@ kotlinX-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", vers
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 multiplatformSwiftPackage = { id = "io.github.luca992.multiplatform-swiftpackage", version.ref = "mulitplatformSwiftPackage" }
+kmpBridge = { id = "co.touchlab.faktory.kmmbridge", version.ref = "kmpBridge" }
 gradleVersionUpdate = { id = "com.github.ben-manes.versions", version.ref = "gradleVersionUpdate" }
 
 compose = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
@@ -59,4 +61,4 @@ cache4k = { module = "io.github.reactivecircus.cache4k:cache4k", version.ref = "
 #Tests Lib Dependencies
 # kotlinX-testResources = { module = "com.goncalossilva:resources", version.ref = "kotlinxTestResources" }
 kotlinX-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
-mockative={module="io.mockative:mockative", version.ref="mockative"}
+mockative = { module = "io.mockative:mockative", version.ref = "mockative" }

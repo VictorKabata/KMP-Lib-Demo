@@ -31,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     buildFeatures {
@@ -49,10 +49,10 @@ android {
 dependencies {
     val compose_version = "1.1.1"
 
-    implementation(project(":bridge"))
+    // implementation(project(":bridge"))
 
     // Added from local machine via Maven Local -> ./gradlew publishToMavenLocal
-    // implementation("com.github.VictorKabata:kmp-lib-demo:0.0.1")
+    implementation("com.github.VictorKabata:kmp-lib-demo:0.0.1")
 
     implementation("androidx.core:core-ktx:1.9.0")
 
@@ -62,13 +62,4 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     implementation("androidx.compose.material3:material3:1.1.0-alpha02")
-
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
-
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
-    debugImplementation("androidx.compose.ui:ui-tooling:$compose_version")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
 }
