@@ -92,8 +92,8 @@ afterEvaluate {
 kmmbridge{
     frameworkName.set("KmpLibDemo") // Optional
     mavenPublishArtifacts()
-    githubReleaseVersions()
-    versionPrefix.set("0.1")
+    gitTagVersions()
+    versionPrefix.set("0.0")
     spm()
 }
 addGithubPackagesRepository()
