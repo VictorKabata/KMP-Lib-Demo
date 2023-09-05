@@ -24,7 +24,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with gradle
-        run: ./gradlew :daraja:build --stacktrace
+        run: ./gradlew :bridge:build --stacktrace
 
   unit-tests:
     name: 🧪 Run Tests
@@ -44,10 +44,10 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Execute unit tests
-        run: ./gradlew :daraja:check --stacktrace
+        run: ./gradlew :bridge:check --stacktrace
 
       - name: Upload test report
         uses: actions/upload-artifact@v3
         with:
           name: unit_tests_report.html
-          path: daraja/build/reports/tests/testReleaseUnitTest/
+          path: bridge/build/reports/tests/testReleaseUnitTest/
