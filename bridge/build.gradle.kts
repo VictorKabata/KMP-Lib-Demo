@@ -8,12 +8,11 @@ plugins {
 
     id("maven-publish")
     // id("signing")
-    // id("co.touchlab.faktory.kmmbridge") version "0.3.7"
+
+    id("co.touchlab.faktory.kmmbridge") version "0.3.7"
 }
 
-@OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
-    targetHierarchy.default()
 
     android {
         publishLibraryVariants("release", "debug")
@@ -31,7 +30,7 @@ kotlin {
         version = "1.0"
         ios.deploymentTarget = "14.1"
         framework {
-            baseName = "bridge"
+            baseName = "KmpLibDemo"
             isStatic = true
         }
     }
@@ -74,6 +73,7 @@ android {
     }*/
 }
 
+/**Publish android AAR lib*/
 afterEvaluate {
     publishing {
         publications {
@@ -86,6 +86,11 @@ afterEvaluate {
             }
         }
     }
+}
+
+/**Publish iOS SPM lib*/
+kmmbridge{
+    frameworkName.set("KmpLibDemo")
 }
 
 
