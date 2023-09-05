@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   push:
     [main]
+  
 permissions:
   contents: write
   packages: write
